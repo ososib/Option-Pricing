@@ -57,7 +57,6 @@ This command will read the trades from trades.csv and market data from market_da
 
 ## Assumptions
 
-See pdf file...
 
 For detailed assumptions and pricing models, refer to the theoretical framework discussed in the pdf files (not included, can be provided).
 
