@@ -25,7 +25,7 @@ The program requires two CSV input files and produces one CSV output file:
 1. Trade CSV File ("trade_data.csv") - Contains the trade details such as trade ID, quantity, underlying, expiry, payment time, strike, call/put type, and currency.
 2. Market Data CSV File ("market_data.csv") - Contains the market data such as asset class, underlying, spot price, and volatility.
 
-The names of these files need to be passed as arguments to the program. Or simply provided in "main" block if running on IDE.
+The names of these files need to be passed as arguments to the program (see instructions below). If running on an IDE, see the option_pricer.py in the folder "Alternative" in the repo (the terminal instructions below might be less relevant then).
 
 ## Output File
 
