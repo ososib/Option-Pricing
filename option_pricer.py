@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
+import sys
 from scipy.stats import norm
+
 
 class OptionPricer:
     def __init__(self, trade_data_path, market_data_path, output_path):
@@ -19,7 +21,7 @@ class OptionPricer:
         self.trade_data = pd.read_csv(self.trade_data_path)
         self.market_data = pd.read_csv(self.market_data_path)
         self.data = pd.merge(self.trade_data, self.market_data, on='underlying', how='left')
-        self.data.to_csv("merge.csv", index=False)
+        #self.data.to_csv("merge.csv", index=False)
         
 
     @staticmethod
@@ -96,8 +98,23 @@ class OptionPricer:
     def save_results(self):
         self.data[['trade_id', 'PV', 'Equity Delta', 'Equity Vega']].round(4).to_csv(self.output_path, index=False)
 
-if __name__ == '__main__':
-    pricer = OptionPricer('trade_data.csv', 'market_data.csv', 'result.csv')
+def main():
+    if len(sys.argv) != 4:
+        print("Error! Give: python option_pricer.py <trade_csv_file> <market_data_csv_file> <result_csv_file>")
+        sys.exit(1)
+
+    trade_csv_file = sys.argv[1]
+    market_data_csv_file = sys.argv[2]
+    result_csv_file = sys.argv[3]
+    
+    
+
+    pricer = OptionPricer(trade_csv_file, market_data_csv_file, result_csv_file)
     pricer.load_data()
     pricer.calculate_options()
     pricer.save_results()
+        
+    
+
+if __name__ == "__main__":
+    main()
