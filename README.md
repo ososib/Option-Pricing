@@ -1,7 +1,5 @@
 # Option Pricing Program
 
-This program is designed to price options using provided market data and trade information. It calculates the present value, equity delta, and equity vega for each trade entry.
-
 ## Description
 
 This program is designed to price options using provided market data and trade information. It calculates the present value, equity delta, and equity vega for each trade entry.
